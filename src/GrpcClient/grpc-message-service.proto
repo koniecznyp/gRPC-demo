@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcMessageServerService";
+
+package Services.Messages;
+
+service MessageService {
+  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse) {}
+  rpc GetMessagesStream (GetMessageRequest) returns (stream GetMessageResponse) {}
+}
+
+message GetMessageRequest {
+  string id = 1;
+}
+
+message GetMessageResponse {
+  string message = 1;
+  int32 value1 = 2;
+  double value2 = 3;
+}
